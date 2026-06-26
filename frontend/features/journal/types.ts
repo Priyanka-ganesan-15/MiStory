@@ -1,5 +1,6 @@
-export type JournalEntry = {
-  id: string;
+export interface JournalEntry {
+  id: number;
   text: string;
-  createdAt: string;
-};
+  source: string;
+  created_at: string;
+}

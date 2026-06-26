@@ -6,7 +6,8 @@ import { JournalEntryForm } from "@/features/journal/components/journal-entry-fo
 import { JournalList } from "@/features/journal/components/journal-list";
 
 export default function JournalPage() {
-  const { entries, addEntry } = useJournal();
+  const { entries, loading, addEntry } = useJournal();
+
 
   return (
     <AppShell>
@@ -23,9 +24,12 @@ export default function JournalPage() {
 
         {/* Input */}
         <JournalEntryForm onAdd={addEntry} />
-
-        {/* List */}
-        <JournalList entries={entries} />
+        
+        {loading ? (
+            <p>Loading...</p>
+        ) : (
+            <JournalList entries={entries} />
+        )}
       </div>
     </AppShell>
   );

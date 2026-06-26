@@ -1,9 +1,9 @@
 from sqlmodel import SQLModel, Session, create_engine # type: ignore
 
-DATABASE_URL = "sqlite:///./mistory.db"
+from app.core.config import settings
 
 engine = create_engine(
-    DATABASE_URL,
+    settings.DATABASE_URL,
     echo=True,
     connect_args={"check_same_thread": False},
 )
